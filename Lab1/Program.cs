@@ -52,20 +52,49 @@ static class Program
         list.AddRange(temporary);
     }
 
-    static void SortNoPrime(List<int> list)
+    // Items are moved if they match sortCondition predicate.
+    // Otherwise their positions are preserved.
+    static void SortIf(this List<int> list, Predicate<int> sortCondition)
     {
         Console.Write("Sorting \n");
-        int[] temporary = list.ToArray();
-        list.Clear();
-        int length = temporary.Length;
-        for(int i = 1; i < length; i++){
-            int v = temporary[i], j;
-            for(j=i; j>0 && NoPrimeComparison(temporary[j-1], v) > 0; j--){
-                temporary[j] = temporary[j-1];
+
+        List<int> 
+            trueCondition = new List<int>(), 
+            falseCondition = new List<int>(),
+            falseConditionIndex = new List<int>();
+
+        int index = 0;
+        foreach (int item in list) {
+            if (sortCondition(item)) {
+                trueCondition.Add(item);
             }
-            temporary[j] = v;
+            else {
+                falseCondition.Add(item);
+                falseConditionIndex.Add(index);
+            }
+            index++;
         }
-        list.AddRange(temporary);
+
+        list.Clear();
+        trueCondition.Sort();
+
+        IEnumerator<int> 
+            trueConitionIter = trueCondition.GetEnumerator(),
+            falseConditionIter = falseCondition.GetEnumerator(),
+            falseConditionIndexIter = falseConditionIndex.GetEnumerator();
+
+        while (falseConditionIndexIter.MoveNext()) {
+            while (falseConditionIndexIter.Current > list.Count) {
+                trueConitionIter.MoveNext();
+                list.Add(trueConitionIter.Current);
+            }
+            falseConditionIter.MoveNext();
+            list.Add(falseConditionIter.Current);
+        }
+        // Append trailing items 
+        while (trueConitionIter.MoveNext()) {
+            list.Add(trueConitionIter.Current);
+        }
     }
 
     static bool IsPrime (int number) {
@@ -81,6 +110,7 @@ static class Program
             for (int i=upperBound; i>1; i-=2) {
                 if (number % i == 0) {
                     result = false;
+                    break;
                 }
             }
         }
@@ -88,10 +118,8 @@ static class Program
         return result;
     }
 
-    static int NoPrimeComparison (int left, int right) 
-    {
-        if (IsPrime(left) || IsPrime(right)) return 0;
-        else return left - right;
+    static bool IsNonPrime (int number) {
+        return !IsPrime(number);
     }
 
     static T Use<T>(this T obj, Action<T> action) where T: class 
@@ -114,7 +142,7 @@ static class Program
             .Use(DisplayList)
             .Use(Repeat3)
             .Use(DisplayList)
-            .Use(SortNoPrime)
+            .Use(L => L.SortIf(IsNonPrime))
             .Use(DisplayList);
     }
 } 
