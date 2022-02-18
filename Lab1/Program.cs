@@ -37,7 +37,7 @@ static class Program
     static void RemoveOdd(List<int> list)
     {
         Console.Write("Removing odd \n");
-        list.RemoveAll(number => (number % 2 == 1));
+        list.RemoveAll(number => (Math.Abs(number) % 2 == 1));
     }
 
     static void Repeat3(List<int> list)
