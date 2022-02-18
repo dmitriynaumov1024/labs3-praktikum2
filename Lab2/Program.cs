@@ -87,8 +87,9 @@ static class Program
 
     static List<MonitorInfo> CustomFilter (List<MonitorInfo> list, int limit)
     {
-        return list.OrderByDescending(item => item.Price)
-                   .ThenBy(item => item.Diagonal)
+        int maxPrice = list.Max(item => item.Price);
+        return list.Where(item => item.Price == maxPrice)
+                   .OrderBy(item => item.Diagonal)
                    .Take(limit).ToList();
     }
 
