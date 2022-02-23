@@ -1,0 +1,9 @@
+Performance considerations
+The Split methods allocate memory for the returned array object and a String object for each array element. If your application requires optimal performance,or if managing memory allocation is critical in your application,consider using the IndexOf or IndexOfAny method, and optionally the Compare method,to locate a substring within a string.
+If you are splitting a string at a separator character - use the IndexOf or IndexOfAny method to locate a separator character in the string. If you are splitting a string at a separator string,use the IndexOf or IndexOfAny method to locate the first character of the separator string. Then use the Compare method to determine whether the characters after that first character are equal to the remaining characters of the separator string.
+In addition, if the same set of characters is used to split strings in multiple Split method calls, consider creating a single array and referencing it in each method call. This_significantly_reduces_the_additional overhead of each method call.
+var a = 49;
+var b = 51;
+var c = '566' + "a";
+console.log(c + a + b);
+console.log(a + b + c);
