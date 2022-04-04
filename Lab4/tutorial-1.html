@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Урок 1 | Вивчаємо C Sharp</title>
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+        pre, code {
+            font-family: monospace;
+            background-color: #fafafa;
+        }
+        header, main, footer {
+            max-width: 700px;
+            padding: 10px 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Вивчаємо C Sharp</h1>
+        <ul>
+            <li><a href="index.html">Головна</a></li>
+            <li><a href="#tutorials-list">Уроки</a></li>
+            <li><a href="aboutme.html">Про автора</a></li>
+        </ul>
+    </header>
+    <main>
+        <section>
+            <h2>Урок 1. Початок розробки на C#. Установка .NET</h2>
+            <p><i>Час виконання: до 20 хвилин</i></p>
+            <p>Для компіляції та запуску програм на C# Вам знадобиться .NET SDK, його можна завантажити за посиланням: <a href="https://dotnet.microsoft.com/en-us/download">https://dotnet.microsoft.com/en-us/download</a></p>
+            <p>Завантажте та встановіть .NET SDK. Після установки, напишіть в командному рядку <code>dotnet</code>. Якщо установка пройшла успішно, то отримаєте щось на зразок</p>
+            <pre>
+Usage: dotnet [options]
+Usage: dotnet [path-to-application]
+
+Options:
+  -h|--help         Display help.
+  --info            Display .NET information.
+  --list-sdks       Display the installed SDKs.
+  --list-runtimes   Display the installed runtimes.
+
+path-to-application:
+  The path to an application .dll file to execute.
+
+            </pre>
+            <p>В терміналі, перейдіть до нової директорії, де Ви бажаєте розмістити новий проект. Створіть перший проект командою <code>dotnet new console</code></p>
+            <p>Ви автоматично отримаєте файл проекту та файл з вихідним кодом</p>
+            <pre>
+using System;
+
+namespace test
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+        }
+    }
+}   
+            </pre>
+            <p>В даному коді є метод static void Main, який є вхідною точкою для виконання програми. Тобто, яку програму Ви б не писали, завжди виконання починається з методу static void Main. Цей метод може бути поміщений у будь-який клас. Якщо такого методу не буде в жодному з класів програми, то виникне помилка компіляції.</p>
+            <p>В даному коді метод Main містить лише одну інструкцію.</p>
+            <pre>
+Console.WriteLine("Hello World!"); 
+            </pre>
+            <p>Вона означає, що треба вивести на консоль текст "Hello World!". Оскільки в методі Main більше немає ніяких інструкцій, виконання програми закінчується.</p>
+            <p>Щоб скомпілювати та запустити програму, напишіть команду <code>dotnet run</code>. Отримаєте такий результат:</p>
+            <pre>
+>dotnet run
+Hello wolrd!
+
+            </pre>
+            <p><b>Ще один нюанс:</b> усі методи в мові C# мають бути розміщені всередині класів. А от використання просторів імен (namespace) не є обов'язковим. Більш детально про це &ndash; у наступних уроках.</p>
+            <p><b>Завдання 1:</b> Змініть код програми так, щоб виводилося ваше прізвище та ім'я.</p>
+            <p><b>Завдання 2:</b> За допомогою команди <code>dotnet help</code> дізнайтеся про інші можливості .NET SDK.</p>
+        </section>
+    </main>
+    <footer>
+        &copy; 2022 Dmitriy Naumov | 
+        <a href="https://gihub.com/dmitriynaumov1024">My github</a>
+    </footer>
+</body>
+</html>
