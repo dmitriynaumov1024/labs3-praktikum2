@@ -1,0 +1,185 @@
+* {
+    box-sizing: border-box;
+    font-family: "Verdana", sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+pre, code {
+    font-family: monospace;
+    background-color: #fafafa;
+}
+
+header, main, footer {
+    padding: 16px 40px;
+    display: flow-root;
+}
+
+header>*, main>*, footer>* {
+    width: 100%;
+}
+
+main>section {
+    border-bottom: 2px dashed #c0c0c0;
+}
+
+@media screen and (min-width: 10in) {
+    header>*, main>*, footer>* {
+        max-width: 9in;
+    }
+}
+
+header {
+    background-color: #faf8ff;
+    box-shadow: 0 0 14px #f0e9f2;
+}
+
+tr.breaker td {
+    border-top: 1px solid #b1b1b1;
+}
+
+img.profile-pic {
+    border-radius: 50%;
+}
+
+tr td {
+    padding-right: 1.5em;
+}
+
+tr td:last-child {
+    padding-right: 0;
+}
+
+h1 {
+    border-left: 0.4em solid #de99f9;
+    padding: 0.2em 0.5em;
+    background-color: #f9e0ff;
+}
+
+h2 {
+    border-left: 0.4em solid #fc7060;
+    padding: 0.2em 0.5em;
+}
+
+h3 {
+    border-left: 0.4em solid #feac70;
+    padding: 0.2em 0.5em;
+}
+
+textarea {
+    height: 20em;
+    resize: none;
+}
+
+input[type="text"], input[type="number"], 
+input[type="email"], select, textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.25em;
+}
+
+a.text-link {
+    color: #111145;
+    text-decoration: none;
+    background-color: #e0f2ff;
+    padding: 0px 0.5em;
+}
+
+a.text-link::before {
+    content: "⤷ ";
+}
+
+/* Wikipedia links styling */
+a.text-link[href*="wikipedia"] {
+    background-color: #feff78;
+}
+
+a.text-link[href*="wikipedia"]::before {
+    content: "📖 ";
+}
+
+/* Microsoft docs styling */
+a.text-link[href*="docs.microsoft"] {
+    background-color: #a9e8fe;
+    color: #095678;
+}
+
+a.text-link[href*="docs.microsoft"]::before {
+    display: inline-block;
+    content: " ";
+    background-image: url("img/microsoft-logo.svg");
+    background-size: 1em 1em;
+    background-repeat: no-repeat;
+    width: 1em;
+    height: 1em;
+    margin-bottom: -0.1em;
+    margin-right: 0.5em;
+}
+
+a.text-link:visited {
+  color: #228830;
+  background-color: #ddfece;
+}
+
+a.text-link:hover {
+    text-decoration: underline;
+}
+
+a.text-link:active {
+    background-color: #eaeaff;
+}
+
+a.button, button {
+    text-decoration: none;
+    appearance: none;
+    padding: 0.25em 1em;
+    background-color: #111111;
+    color: #fefefe;
+    border-radius: 2px;
+    font: 120% serif;
+    font-style: italic;
+    border: none;
+    cursor: pointer;
+}
+
+a.button:visited {
+    background-color: #111111;
+}
+
+a.button:hover, button:hover {
+    background-color: #323345;
+    box-shadow: 0 0 10px #d0d0d0;
+}
+
+ul li, ol li {
+    margin-bottom: 0.5em;
+}
+
+ul.navigation {
+    padding: 0;
+}
+
+ul.navigation li {
+    list-style-type: none;
+    display: inline;
+    margin-right: 0.5em;
+}
+
+ul.navigation li:last-child {
+    margin-right: 0;
+}
+
+main p { 
+    color: #767676;
+}
+
+main p::first-line {
+    color: #131313;
+}
+
+main p:hover {
+    color: #131313;
+    background-color: #fcfcfe;
+}

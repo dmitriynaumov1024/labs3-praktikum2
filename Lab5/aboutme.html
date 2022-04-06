@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Інформація про автора | Вивчаємо C Sharp</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Інформація про автора</h1>
+        <ul class="navigation">
+            <li><a class="button" href="index.html">На головну</a></li>
+        </ul>
+    </header>
+    <main>
+        <section>
+        <table>
+            <tr>
+                <td><img class="profile-pic" src="img/6-2.png" width="160" height="160"/></td>
+                <td>
+                    <h2>Дмитро Наумов</h2>
+                    <p>Запорізький Національний Університет</p>
+                    <p><i>6.1219-2 / Програмна інженерія</i></p>
+                    <p>Telegram: <a href="https://t.me/int_main_return_0">t.me/int_main_return_0</a></p>
+                </td>
+            </tr>
+        </table>
+        </section>
+        <form action="#">
+            <table>
+                <tr><td colspan="2"><h3>Зворотній зв'язок</h3></td></tr>
+                <tr>
+                    <td><span>Ваше ім'я</span></td>
+                    <td><input type="text" name="name" required /></td>
+                </tr>
+                <tr>
+                    <td><span>Вік</span></td>
+                    <td><input type="number" name="age" required /></td>
+                </tr>
+                <tr>
+                    <td><span>Роль</span></td>
+                    <td><select name="role" id="select-role">
+                        <option value="none" disabled selected>Не вибрано</option>
+                        <option value="school">Школяр</option>
+                        <option value="student">Студент</option>
+                        <option value="teacher">Викладач</option>
+                        <option value="programmer">Програміст</option>
+                        <option value="other">Інше</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td><span>E-mail</span></td>
+                    <td><input type="email" name="email"></td>
+                </tr>
+                <tr class="breaker"><td colspan="2">&ensp;</td></tr>
+                <tr>
+                    <td><span>Досвід програмування (місяців)</span></td>
+                    <td><input type="range" min="0" max="40" name="bucks" id="input-bucks"/><span id="output-bucks"></span></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="checkbox" name="lang" id="input-lang0" value="cpp"><label for="input-lang0">C / C++</label></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="checkbox" name="lang" id="input-lang1" value="csharp"><label for="input-lang1">C Sharp</label></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="checkbox" name="lang" id="input-lang2" value="java"><label for="input-lang2">Java</label></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="checkbox" name="lang" id="input-lang3" value="javascript"><label for="input-lang3">JavaScript</label></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="checkbox" name="lang" id="input-lang4" value="python"><label for="input-lang4">Python</label></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="checkbox" name="lang" id="input-lang5" value="swift" disabled><label for="input-lang5">Swift</label></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="checkbox" name="lang" id="input-lang6" value="php"><label for="input-lang6">PHP</label></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="checkbox" name="lang" id="input-lang7" value="other"><label for="input-lang7">Інше</label></td>
+                </tr>
+                <tr class="breaker"><td colspan="2">&ensp;</td></tr>
+                <tr>
+                    <td colspan="2"><input type="radio" name="notifications" id="input-notifications-yes" value="yes"><label for="input-notifications-yes">Хочу отримувати сповіщення на E-mail</label></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="radio" name="notifications" id="input-notifications-no" value="no"><label for="input-notifications-no">Не хочу отримувати сповіщення на E-mail</label></td>
+                </tr>
+                <tr class="breaker"><td colspan="2">&ensp;</td></tr>
+                <tr>
+                    <td colspan="2">Напишіть мені листа</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><textarea name="input-text" id="input-text"></textarea></td>
+                </tr>
+                <tr>
+                    <td><span>Прикріпити файл</span></td>
+                    <td><input type="file"></td>
+                </tr>
+                <tr class="breaker"><td colspan="2">&ensp;</td></tr>
+                <tr>
+                    <td></td>
+                    <td><button type="submit">Надіслати</button></td>
+                </tr>
+            </table>
+        </form>
+    </main>
+    <footer>
+        <span>
+            &copy; 2022 Dmitriy Naumov | 
+            <a href="https://gihub.com/dmitriynaumov1024">My github</a>
+        </span>
+    </footer>
+    <script type="text/javascript">
+        (function(input, output){
+            input.oninput = function(){
+                output.innerText = input.value;
+            }
+        })(
+            document.getElementById("input-bucks"), 
+            document.getElementById("output-bucks")
+        );
+
+        var input = document.getElementById("input-bucks");
+        var output = document.getElementById("output-bucks");
+        input.oninput = function(){
+            output.innerText = input.value;
+        }
+    </script>
+</body>
+</html>
