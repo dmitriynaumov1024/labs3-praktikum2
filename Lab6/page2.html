@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>2. Модальне вікно</title>
+    <link rel="stylesheet" type="text/css" href="css/page2.css">
+</head>
+<body>
+    <header>
+        <h1>Hell to world!</h1>
+        <nav class="navbar">
+            <ul class="navbar-list">
+                <li><a class="navbar-button" href="#">Sign in</a></li>
+                <li><a class="navbar-button" onclick="showModal('modal-outer-1')">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+<p>LGBT is an initialism that stands for lesbian, gay, bisexual, and transgender. In use since the 1990s, the initialism, as well as some of its common variants, functions as an umbrella term for sexuality and gender identity.</p>
+<p>It may refer to anyone who is non-heterosexual or non-cisgender, instead of exclusively to people who are lesbian, gay, bisexual, or transgender. To recognize this inclusion, a popular variant, LGBTQ, adds the letter Q for those who identify as queer or are questioning their sexual or gender identity; LGBTQI or LGBTQI+ adds "intersex" (and other gender variants) to the definition.
+The first widely used term, homosexual, now carries negative connotations in the United States. Gay became a popular term in the 1970s.</p>
+<p>As lesbians forged more public identities, the phrase "gay and lesbian" became more common. A dispute as to whether the primary focus of their political aims should be feminism or gay rights led to the dissolution of some lesbian organizations, including the Daughters of Bilitis, which disbanded in 1970 following disputes over which goal should take precedence. As equality was a priority for lesbian feminists, disparity of roles between men and women or butch and femme were viewed as patriarchal. Lesbian feminists eschewed gender role play that had been pervasive in bars as well as the perceived chauvinism of gay men; many lesbian feminists refused to work with gay men, or take up their causes.</p>
+<p>Lesbians who held the essentialist view, that they had been born homosexual and used the descriptor "lesbian" to define sexual attraction, often considered the separatist opinions of lesbian-feminists to be detrimental to the cause of gay rights. Bisexual and transgender people also sought recognition as legitimate categories within the larger minority community.</p>
+<p>After the elation of change following group action in the 1969 Stonewall riots in New York City, in the late 1970s and the early 1980s, some gays and lesbians became less accepting of bisexual or transgender people. Critics said that transgender people were acting out stereotypes and bisexuals were simply gay men or lesbian women who were afraid to come out and be honest about their identity. Each community has struggled to develop its own identity including whether, and how, to align with other gender and sexuality-based communities, at times excluding other subgroups; these conflicts continue to this day. LGBTQ activists and artists have created posters to raise consciousness about the issue since the movement began.</p>
+<p>From about 1988, activists began to use the initialism LGBT in the United States. Not until the 1990s within the movement did gay, lesbian, bisexual, and transgender people gain equal respect. This spurred some organizations to adopt new names, as the GLBT Historical Society did in 1999. Although the LGBT community has seen much controversy regarding universal acceptance of different member groups (bisexual and transgender individuals, in particular, have sometimes been marginalized by the larger LGBT community), the term LGBT has been a positive symbol of inclusion.</p>
+<p>Despite the fact that LGBT does not nominally encompass all individuals in smaller communities (see Variants below), the term is generally accepted to include those not specifically identified in the four-letter initialism. Overall, the use of the term LGBT has, over time, largely aided in bringing otherwise marginalized individuals into the general community. Transgender actress Candis Cayne in 2009 described the LGBT community as "the last great minority", noting that "We can still be harassed openly" and be "called out on television".</p>
+<p>In 2016, GLAAD's Media Reference Guide states that LGBTQ is the preferred initialism, being more inclusive of younger members of the communities who embrace queer as a self-descriptor. However, some people consider queer to be a derogatory term originating in hate speech and reject it, especially among older members of the community.</p>
+<p><i>Material is taken from <a href="https://en.wikipedia.org/wiki/LGBT">Wikipedia</a>, the Free Encyclopedia.</i></p>
+    </main>
+    <footer>
+        <span>
+            &copy; 2022 Dmitriy Naumov | 
+            <a href="https://gihub.com/dmitriynaumov1024">My github</a>
+        </span>
+    </footer>
+    <div class="modal-outer" id="modal-outer-1">
+        <div class="modal registration" id="modal-1">
+            <button class="window-close" onclick="hideModal('modal-outer-1')">&#10060;</button>
+            <h1>Registration form</h1>
+            <form action="#">
+                <input type="text" placeholder="Username">
+                <input type="text" placeholder="Password">
+                <button type="submit">Sign up</button>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function showModal (id) {
+            document.getElementById(id).style.display = "block"
+        }
+        function hideModal (id) {
+            document.getElementById(id).style.display = "none"
+        }
+    </script>
+</body>
+</html>

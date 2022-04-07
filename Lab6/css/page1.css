@@ -1,0 +1,137 @@
+/* Topic: Sticky navigation menu */
+
+/* General rules */
+* {
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+body>main {
+    min-height: 99vh;
+}
+
+body>header, body>main, body>footer {
+    padding: 16px 40px;
+    display: flow-root;
+}
+
+body>header>*, body>main>*, body>footer>* {
+    width: 100%;
+}
+
+@media screen and (min-width: 10in) {
+    body>header>*, body>main>*, body>footer>* {
+        max-width: 9in;
+    }
+}
+
+pre {
+    background-color: #fafafc;
+    font-family: monospace;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+/* Site specific header */
+body>header {
+    user-select: none;
+    position: sticky;
+    top: 0;
+    overflow: visible;
+    background-color: #414347;
+    padding-bottom: 2px;
+    box-shadow: 0 4px 4px rgba(88, 88, 89, 0.25);
+}
+
+body>header * {
+    color: #f9f9fc;
+}
+
+/* Navigation bar */
+.navbar {
+    
+}
+
+.navbar-list {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-list li {
+    display: inline-block;
+    list-style-type: none;
+    margin-right: 0px;
+}
+
+a.navbar-button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 16px 8px 16px;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    transition-duration: 0.2s;
+}
+
+a.navbar-button:not(:hover) {
+    border-color: transparent;
+}
+
+a.navbar-button:hover {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+a.navbar-button:active {
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.12);
+}
+
+/*a.navbar-button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 6px 20px 5px 20px;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    transition-duration: 0.2s;
+    border-radius: 2px;
+    background: linear-gradient(180deg, #545759, #4a4c4f, #47494a, #3e4042);
+}
+
+a.navbar-button:not(:active) {
+    border-color: transparent;
+}
+
+a.navbar-button:hover {
+    color: #ffffff !important;
+    background: linear-gradient(180deg, #56595b, #4c4e51, #494a4c, #3e4042);
+}
+
+a.navbar-button:active {
+    background: linear-gradient(180deg, #4c4e51, #505255, #505255, #535557);
+}
+*/
+
+.border-color-1 {
+    border-color: yellow;
+}
+
+.border-color-2 {
+    border-color: red;
+}
+
+.border-color-3 {
+    border-color: lightgreen;
+}
+
+.border-color-4 {
+    border-color: magenta;
+}
+
+.border-color-5 {
+    border-color: orange;
+}

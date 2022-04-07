@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>1. Навігаційне меню</title>
+    <link rel="stylesheet" type="text/css" href="css/page1.css">
+</head>
+<body>
+    <header>
+        <h1>Hell to world!</h1>
+        <nav class="navbar">
+            <ul class="navbar-list">
+                <li><a class="navbar-button border-color-1" href="#">Google</a></li>
+                <li><a class="navbar-button border-color-2" href="#">Safari</a></li>
+                <li><a class="navbar-button border-color-3" href="#">Opera</a></li>
+                <li><a class="navbar-button border-color-4" href="#">Javascript</a></li>
+                <li><a class="navbar-button border-color-5" href="#">Typescript</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <p>Lorem ipsum sit amet...</p>
+            <pre>
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
+using System.IO;
+
+static class Actions
+{
+    public static void SaveToFile (List&lt;MonitorInfo&gt; items)
+    {
+        var dialog = new SaveFileDialog {
+            RestoreDirectory = true,
+            Title = "Save as"
+        };
+        if (dialog.ShowDialog() == DialogResult.OK) {
+            StreamWriter writer = new StreamWriter(dialog.OpenFile());
+            foreach (MonitorInfo item in items) {
+                writer.Write(CsvConverters.ToCsvString(item));
+                writer.Write("\r\n");
+            } 
+            writer.Flush();
+            writer.Dispose();
+        }    
+    }
+
+    public static void LoadFromFile (List&lt;MonitorInfo&gt; items)
+    {
+        var dialog = new OpenFileDialog {
+            RestoreDirectory = true,
+            Title = "Select a file"
+        };
+        if (dialog.ShowDialog() == DialogResult.OK) {
+            StreamReader reader = new StreamReader(dialog.OpenFile());
+            items.Clear();
+            do {
+                string line = reader.ReadLine();
+                if (line.StartsWith("#")) continue;
+                var currentItem = CsvConverters.CsvStringToMonitor(line);
+                if (currentItem != null) items.Add(currentItem);
+            } while (!reader.EndOfStream);
+            reader.Dispose();
+        }
+    }
+    
+}
+            </pre>
+            <p>Program.cs - Lab3</p>
+            <pre>
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+using System.Threading;
+using System.Globalization;
+
+static class Program
+{
+    static char[] Separators = ("_.,&lt;&gt;{}[]()-+ \n\t\r\"\'`:;?!\\/|").ToCharArray();
+
+    static string TimeId {
+        get {
+            System.Threading.Thread.Sleep(10);
+            return String.Format("{0:x}", DateTime.UtcNow.Ticks);
+        }
+    }
+
+    static List&lt;string&gt; SplitWords (string source)
+    {
+        var result = new List&lt;string&gt;();
+        if (source == null || source.Length == 0) return result;
+        result.AddRange(source.Split(Separators, StringSplitOptions.RemoveEmptyEntries));
+        return result;
+    } 
+
+    static SortedDictionary&lt;string, int&gt; GroupByCount (
+        IEnumerable&lt;string&gt; source, 
+        bool ignoreCase = false)
+    {
+        var result = new SortedDictionary&lt;string, int&gt;();
+        if (source == null) return result;
+        foreach (string _item in source) {
+            string item = ignoreCase ?_item.ToLower() : _item;
+            int count = 0;
+            result.TryGetValue(item, out count);
+            result[item] = count + 1;
+        }
+        return result;
+    }
+
+    static bool OnlyOneSymbolRepeats(string word)
+    {
+        char? repeatedChar = null;
+        for (int i=word.Length-1; i&gt;0; i--) {
+            for (int j=0; j&lt;i; j++) {
+                if (word[i] == word[j]) {
+                    if (repeatedChar.HasValue && repeatedChar.Value != word[i])
+                        return false;
+                    repeatedChar = word[i];
+                }
+            }
+        }
+        // if repeatedChar has value, there was exactly one repeating symbol
+        // otherwise, there were no repeating symbols
+        return repeatedChar.HasValue;
+    }
+
+    static void Main (string[] args)
+    {
+        // Set up invariant culture
+        Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+        
+        // Set up utf-8 output encoding
+        var encoding = Console.OutputEncoding;
+        Console.OutputEncoding = Encoding.UTF8;
+
+        if (args.Length &lt; 1) {
+            Console.Write("Usage: &lt;input_path&gt;\n");
+        }
+        else if (File.Exists(args[0])) {
+            // Read all text from file
+            string text = File.ReadAllText(args[0]);
+
+            // Get a list of words from text
+            var words = SplitWords(text);
+            Console.Write("Total: {0} words.\n", words.Count);
+
+            // Find all words where only one symbol repeats
+            var wordsQ = words.FindAll(OnlyOneSymbolRepeats);
+            Console.Write("Only 1 symbol repeats: {0} words.\n", wordsQ.Count);
+            foreach (var word in wordsQ) {
+                Console.Write("{0}\n", word);
+            }
+            Console.Write("\n");
+
+            // Group words by count
+            var wordsWithCount = GroupByCount(words, ignoreCase: true);
+            Console.Write("{0,-20} {1,6}\n", "Word", "Count");
+
+            // Set up logger to write to Console and File simultaneously.
+            var Log = new MultiStreamLogger (
+                Console.Out, 
+                new StreamWriter(args[0]+TimeId+".log"));
+
+            // Write words in alphabetical order and their count
+            foreach (var kvPair in wordsWithCount) {
+                Log.Write("{0,-20} {1,6}\r\n", kvPair.Key, kvPair.Value);
+            }
+        }
+        else {
+            Console.Write("File '{0}' can not be found. \n", args[0]);
+        }
+        
+        // Restore output encoding
+        Console.OutputEncoding = encoding;
+    }    
+}
+            </pre>
+        </section>
+    </main>
+    <footer>
+        <span>
+            &copy; 2022 Dmitriy Naumov | 
+            <a href="https://gihub.com/dmitriynaumov1024">My github</a>
+        </span>
+    </footer>
+</body>
+</html>
