@@ -1,0 +1,184 @@
+/* Topic: Tiled Menu */
+
+/* General rules */
+* {
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+/* Wrapper and visibility filter */
+.tiled-menu-wrapper {
+    position: fixed;
+    z-index: 9;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background: url('../img/wallpaper2.jpg');
+    background-size: cover;
+}
+
+.tiled-menu-wrapper>* {
+    display: none;
+}
+
+.tiled-menu-wrapper>.tiled-menu-box:first-of-type {
+    display: block;
+}
+
+.tiled-menu-box {
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    width: min(500px, 90vw, 80vh);
+    height: min(500px, 90vw, 80vh);
+    transform: translate(-50%, -50%);
+    /*border: 1px solid red;*/
+}
+
+.tiled-menu-box>.tiled-menu-caption:first-of-type {
+    position: absolute;
+    top: -2%;
+    left: 50%;
+    width: 100%;
+    text-align: center;
+    transform: translate(-50%, -100%);
+    font-size: 150%;
+    color: #fefefe;
+}
+
+/* Tiled menu itself */
+.tiled-menu {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.tiled-menu li {
+    list-style-type: none;
+}
+
+.tiled-menu>* {
+    position: absolute;
+    width: 46%;
+    height: 46%;
+    transform: translate(-50%, -50%);
+    display: none;
+    background-color: rgba(120, 120, 120, 0.3);
+    border-radius: 3px;
+    backdrop-filter: blur(4px);
+    transition-duration: 0.2s;
+}
+
+.tiled-menu>*:hover {
+    background-color: rgba(190, 190, 190, 0.5);
+}
+
+/* Cell #1 top left */
+.tiled-menu>*:nth-child(1) {
+    top: 25%;
+    left: 25%;
+    display: inline-block;
+}
+
+.tiled-menu>*:nth-child(1):after {
+    position: absolute;
+    content: " ";
+    top: 0px;
+    /* width of one tile is currently 46%, and midline (50%) 
+       is parent's 48% away from left tile's border, that is why
+       left is 48 / 46 = 1.044 = 104.4% */
+    left: 104.4%; 
+    width: 1px;
+    height: 100%;
+    background-color: #fefefe;
+}
+
+/* Cell #2 top right */
+.tiled-menu>*:nth-child(2) {
+    top: 25%;
+    left: 75%;
+    display: inline-block;
+}
+
+.tiled-menu>*:nth-child(2):after {
+    position: absolute;
+    content: " ";
+    top: 104.4%;
+    left: 0; 
+    width: 100%;
+    height: 1px;
+    background-color: #fefefe;
+}
+
+/* Cell #3 bottom left */
+.tiled-menu>*:nth-child(3) {
+    top: 75%;
+    left: 25%;
+    display: inline-block;
+}
+
+.tiled-menu>*:nth-child(3):after {
+    position: absolute;
+    content: " ";
+    top: -4.4%;
+    left: 0; 
+    width: 100%;
+    height: 1px;
+    background-color: #fefefe;
+}
+
+/* Cell #4 bottom right */
+.tiled-menu>*:nth-child(4) {
+    top: 75%;
+    left: 75%;
+    display: inline-block;
+}
+
+.tiled-menu>*:nth-child(4):after {
+    position: absolute;
+    content: " ";
+    top: 0px;
+    left: -4.4%; 
+    width: 1px;
+    height: 100%;
+    background-color: #fefefe;
+}
+
+.tiled-menu .menu-item>span {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: normal;
+    font-size: 100%;
+    text-decoration: none;
+    color: #fefefe;
+}
+
+.tiled-menu .menu-item:before {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Glyphicons Halflings";
+    font-weight: 400;
+    font-size: 400%;
+    text-decoration: none;
+    color: #fefefe;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>4. Галерея</title>
+    <link rel="stylesheet" href="css/page4.css">
+</head>
+<body>
+    <header>
+        
+    </header>
+    <main>
+        <div class="gallery">
+            <div class="gallery-line">
+                <div class="img-wrapper"><img src="img/image1.jpg"></div>
+                <div class="img-wrapper"><img src="img/image2.jpg"></div>
+                <div class="img-wrapper"><img src="img/image3.jpg"></div>
+                <div class="img-wrapper"><img src="img/image4.jpg"></div>
+                <div class="img-wrapper"><img src="img/image5.jpg"></div>
+                <div class="img-wrapper"><img src="img/image6.jpg"></div>
+                <div class="img-wrapper"><img src="img/image7.jpg"></div>
+                <div class="img-wrapper"><img src="img/image8.jpg"></div>
+                <div class="img-wrapper"><img src="img/image9.jpg"></div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <span>
+            &copy; 2022 Dmitriy Naumov | 
+            <a href="https://gihub.com/dmitriynaumov1024">My github</a>
+        </span>
+    </footer>
+    <script>
+        function addHorizontalScroll(div) {
+            div.addEventListener("wheel", function(event){
+                var target = event.currentTarget;
+                var canScrollRight = (target.offsetWidth + target.scrollLeft < target.scrollWidth && event.deltaY > 0);
+                var canScrollLeft = (target.scrollLeft > 0 && event.deltaY < 0);
+                if (canScrollRight || canScrollLeft){
+                    event.preventDefault();
+                    target.scrollLeft += event.deltaY;
+                }
+            });
+        }
+        document.querySelectorAll(".gallery").forEach(addHorizontalScroll);
+    </script>
+</body>
+</html>

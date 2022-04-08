@@ -1,0 +1,61 @@
+/* Topic: Image gallery */
+
+/* General rules */
+* {
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+body>main {
+    padding: 40px;
+}
+
+body>footer {
+    padding: 40px;
+}
+
+.gallery {
+    display: block;
+    overflow-x: scroll;
+}
+
+.gallery-line {
+    width: max-content;
+}
+
+.img-wrapper {
+    display: inline-block;
+    perspective: 1200px;
+}
+
+.img-wrapper img {
+    display: inline-block;
+    height: 300px;
+    margin-top: 30px;
+    margin-right: -350px;
+    margin-bottom: 30px;
+    object-fit: cover;
+    transform: rotate3d(0, 1, 0, 60deg);
+    transform-origin: left;
+    transition-duration: 0.3s;
+}
+
+.img-wrapper:hover img {
+    transform: initial;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.gallery::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+}
+
+.gallery::-webkit-scrollbar-button {
+  width: 1px;
+  height: 1px;
+}
