@@ -1,0 +1,159 @@
+.account-tools::before, 
+.search-tools::before,
+.search-tools::after,
+.main-most-waited__panel::after,
+.updates-card-cover::after,
+.main-most-waited__panel__info::before,
+.main-most-waited__panel__info::after,
+.main-updates::before,
+.blackbox-header::before,
+.footer::before,
+.this-movie-rating::before {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.account-tools::before {
+    content: " ";
+    background-image: url('../img/corner.png');
+    bottom: -2px;
+    left: -20px;
+    width: 63px;
+    height: 40px;
+    margin-right: -38px;
+    margin-bottom:-40px;
+}
+
+.search-tools::before {
+    content: " ";
+    background-image: url('../img/corner.png');
+    bottom: -6px;
+    left: 28px;
+    width: 76px;
+    height: 56px;
+    margin-right: -76px;
+    margin-bottom:-56px;
+}
+
+.search-tools::after {
+    content: " ";
+    background-image: url('../img/search-corner.png');
+    top: -8px;
+    right: 35px;
+    width: 63px;
+    height: 37px;
+    margin-right: -35px;
+    margin-bottom: -37px;
+}
+
+.main-most-waited__panel::after {
+    position: absolute;
+    content: " ";
+    background-image: url('../img/corner-2.png');
+    bottom: -33px;
+    left: 16%;
+    width: 120px;
+    height: 60px;
+}
+
+.updates-card-cover::after {
+    position: absolute;
+    content: " ";
+    background-image: url('../img/corner.png');
+    bottom: -8px;
+    left: 6px;
+    width: 60px;
+    height: 45px;
+}
+
+.main-most-waited__panel__info::before {
+    position: absolute;
+    content: " ";
+    background-image: url('../img/corner.png');
+    top: 44%;
+    left: -18px;
+    width: 60px;
+    height: 45px;
+    transform: rotate(90deg);
+}
+
+.main-most-waited__panel__info::after {
+    position: absolute;
+    content: " ";
+    background-image: url('../img/corner.png');
+    top: -11px;
+    right: 10px;
+    width: 60px;
+    height: 45px;
+    transform: rotate(180deg);
+}
+
+.main-updates::before {
+    position: absolute;
+    content: " ";
+    background-image: url('../img/decor1.png');
+    top: 1px;
+    left: -52px;
+    width: 52px;
+    height: 343px;
+}
+
+.blackbox-header::before {
+    position: absolute;
+    content: " ";
+    background-image: url('../img/corner-subheader.png');
+    bottom: -8px;
+    left: 1px;
+    width: 68px;
+    height: 30px;
+}
+
+.footer::before {
+    position: absolute;
+    content: " ";
+    background-image: url('../img/corner-footer.png');
+    top: -30px;
+    right: 20px;
+    width: 120px;
+    height: 60px;
+}
+
+.rating::before {
+    display: inline-block;
+    color: #ff1578;
+    font-size: 200%;
+    line-height: 80%;
+    font-weight: normal;
+    content: "\2606\2606\2606\2606\2606 ";
+}
+
+.rating[stars="1"]::before {
+    content: "\2605\2606\2606\2606\2606 ";
+}
+.rating[stars="2"]::before {
+    content: "\2605\2605\2606\2606\2606 ";
+}
+.rating[stars="3"]::before {
+    content: "\2605\2605\2605\2606\2606 ";
+}
+.rating[stars="4"]::before {
+    content: "\2605\2605\2605\2605\2606 ";
+}
+.rating[stars="5"]::before {
+    content: "\2605\2605\2605\2605\2605 ";
+}
+
+
+.this-movie-rating::before {
+    content: " ";
+    background-image: url('../img/rating-bg.png');
+    top: 6px;
+    margin-top: -15px;
+    margin-right: -5px;
+    width: 56px;
+    height: 38px;
+}
