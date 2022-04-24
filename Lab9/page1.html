@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Task 1</title>
+    <script>
+        function main () {
+            Array(...document.body.children).forEach((item, index) => {
+                console.log(`[${index}]: ${item.tagName} \n${item.innerText}`)
+            })
+        }
+    </script>
+</head>
+<body onload="main()">
+    <h2>Hello!</h2>
+    <p>Do you know who I am?</p>
+    <p>Even I don't know that.</p>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Task 6</title>
+    <style>
+        div {
+            margin-bottom: 1em;
+        }
+        .notification {
+            font-family: system-ui, sans-serif;
+            padding: 0.5rem 1rem;
+            border: 1px solid #f0f0f0;
+            background-color: inherit;
+            border-radius: 5px;
+            box-shadow: 0 2px 12px rgba(10, 10, 10, 0.05);
+        }
+        .padding-container {
+            padding: 16px 40px;
+        }
+        .important {
+            font-weight: bold;
+        }
+        .danger {
+            color: #771111;
+            background-color: #fea3a3;
+            border-color: #fea3a3;
+        }
+        .shaking {
+            animation: 0.4s linear 0s infinite normal shaking;
+        }
+        @keyframes shaking {
+            0% { transform: translate(-3px, -5px); }
+            25% { transform: translate(3px, 4px); }
+            50% { transform: translate(-3px, -4px); }
+            75% { transform: translate(0px, 6px); }
+            100% { transform: translate(-5px, -5px); }
+        }
+    </style>
+    <script>
+        function main () {
+
+        }
+        function toggle (selector, classname) {
+            document.querySelectorAll(selector).forEach(item => {
+                item.classList.toggle(classname)
+            })
+        }
+    </script>
+</head>
+<body onload="main()">
+    <h2>CSS class list modification demo</h2>
+    <div class="padding-container">
+        <div class="notification" id="n1">Notification</div>
+    </div>
+    <div class="padding-container">
+        <div><button onclick="toggle('#n1', 'important')">important</button></div>
+        <div><button onclick="toggle('#n1', 'danger')">danger</button></div>
+        <div><button onclick="toggle('#n1', 'shaking')">shaking</button></div>
+    </div>
+</body>
+</html>

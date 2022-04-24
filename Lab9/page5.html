@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Task 5</title>
+    <style>
+        div {
+            margin-bottom: 1em;
+        }
+    </style>
+    <script>
+        function main () {
+
+        }
+        function calcSqrt() {
+            var x = Number(document.getElementById("inputX").value)
+            document.getElementById("output").innerText = Math.sqrt(x)
+        }
+    </script>
+</head>
+<body onload="main()">
+    <h2>Square root calculator</h2>
+    <div>
+        <input type="number" id="inputX" placeholder="x">
+        <button onclick="calcSqrt()">sqrt(x)</button>
+    </div>
+    <div>
+        <span>Result: </span><span id="output"></span>
+    </div>
+</body>
+</html>
